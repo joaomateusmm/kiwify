@@ -9,7 +9,7 @@ export default function HeaderDesktop() {
       <Link href="/">
         <Image
           className="duration-300 hover:scale-105"
-          src="/logo.png"
+          src="/assets/logo.png"
           alt="Kiwify Logo"
           width={150}
           height={60}
