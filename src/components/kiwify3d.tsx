@@ -4,13 +4,13 @@ import { useGLTF } from "@react-three/drei";
 import { Canvas, useFrame } from "@react-three/fiber";
 import type { SpringOptions } from "motion/react";
 import { useMotionValue, useSpring } from "motion/react";
-import { useRef } from "react";
+import { useEffect,useRef } from "react";
 import * as THREE from "three";
 
 const springValues: SpringOptions = {
-  damping: 30,
-  stiffness: 60,
-  mass: 2,
+  damping: 20,
+  stiffness: 20,
+  mass: 4,
 };
 
 function KiwifyModel({
@@ -102,34 +102,64 @@ export default function KiwifyScene() {
   const rotateX = useSpring(useMotionValue(0), springValues);
   const rotateY = useSpring(useMotionValue(0), springValues);
 
-  function handleMouse(e: React.MouseEvent<HTMLDivElement>) {
-    if (!containerRef.current) return;
+  // Global mouse/touch listener so the model follows the cursor
+  // even when the pointer is over other DOM elements.
+  useEffect(() => {
+    const onMove = (ev: MouseEvent | TouchEvent) => {
+      let clientX: number;
+      let clientY: number;
 
-    const rect = containerRef.current.getBoundingClientRect();
-    const offsetX = e.clientX - rect.left - rect.width / 2;
-    const offsetY = e.clientY - rect.top - rect.height / 2;
+      if ("touches" in ev) {
+        if (ev.touches.length === 0) return;
+        clientX = ev.touches[0].clientX;
+        clientY = ev.touches[0].clientY;
+      } else {
+        clientX = (ev as MouseEvent).clientX;
+        clientY = (ev as MouseEvent).clientY;
+      }
 
-    const rotationX = (offsetY / (rect.height / 2)) * -5; // amplitude de rotação
-    const rotationY = (offsetX / (rect.width / 2)) * 5;
+      if (!containerRef.current) return;
+      const rect = containerRef.current.getBoundingClientRect();
+      const offsetX = clientX - rect.left - rect.width / 2;
+      const offsetY = clientY - rect.top - rect.height / 2;
 
-    rotateX.set(rotationX);
-    rotateY.set(rotationY);
+      const rotationX = (offsetY / (rect.height / 2)) * -5;
+      const rotationY = (offsetX / (rect.width / 2)) * 5;
 
-    x.set(e.clientX - rect.left);
-    y.set(e.clientY - rect.top);
-  }
+      rotateX.set(rotationX);
+      rotateY.set(rotationY);
 
-  function handleMouseLeave() {
-    rotateX.set(0);
-    rotateY.set(0);
-  }
+      x.set(clientX - rect.left);
+      y.set(clientY - rect.top);
+    };
+
+    const onLeave = () => {
+      rotateX.set(0);
+      rotateY.set(0);
+    };
+
+    const onOut = (e: MouseEvent) => {
+      // When the mouse leaves the window (no relatedTarget), reset rotation
+      if ((e as MouseEvent).relatedTarget == null) onLeave();
+    };
+
+    window.addEventListener("mousemove", onMove);
+    window.addEventListener("touchmove", onMove, { passive: true });
+    window.addEventListener("mouseleave", onLeave);
+    window.addEventListener("mouseout", onOut);
+
+    return () => {
+      window.removeEventListener("mousemove", onMove);
+      window.removeEventListener("touchmove", onMove);
+      window.removeEventListener("mouseleave", onLeave);
+      window.removeEventListener("mouseout", onOut);
+    };
+  }, [rotateX, rotateY, x, y]);
 
   return (
     <div
       ref={containerRef}
       style={{ width: "100%", height: "100%", background: "transparent" }}
-      onMouseMove={handleMouse}
-      onMouseLeave={handleMouseLeave}
     >
       <Canvas
         camera={{ position: [0, 0, 5], fov: 75 }}

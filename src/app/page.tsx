@@ -2,17 +2,31 @@
 
 import Image from "next/image";
 
-import KiwifyScene from "@/components/exemple";
 import HeaderDesktop from "@/components/headerDesktop";
+import KiwifyScene from "@/components/kiwify3d";
+import Squares from "@/components/Squares";
 import TiltedNotification from "@/components/TiltedNotification";
 import { Button } from "@/components/ui/button";
 
 export default function Home() {
   return (
     <main>
-      <div className="h-screen w-full bg-[radial-gradient(circle_at_50%_-100%,#009D4726_58%,#0B0B0B_76%,#060606_89%)]">
-        <HeaderDesktop />
-        <div className="flex h-[calc(100vh-120px)] flex-row-reverse items-center justify-between px-24">
+      <div className="relative h-screen w-full bg-[radial-gradient(circle_at_50%_-100%,#009D4726_58%,#0B0B0B_76%,#060606_89%)]">
+        <div className="z-20">
+          <HeaderDesktop />
+        </div>
+
+        <div className="pointer-events-none absolute inset-0 z-0">
+          <Squares
+            speed={0.1}
+            squareSize={70}
+            direction="diagonal"
+            borderColor={"rgba(5,255,255,0.01)"}
+            hoverFillColor={"rgba(5,255,255,0.03)"}
+          />
+        </div>
+
+        <div className="relative z-10 flex h-[calc(100vh-120px)] flex-row-reverse items-center justify-between px-24">
           <div className="relative flex h-full w-1/2 items-center justify-start">
             {/* Notificações de vendas */}
             <TiltedNotification
@@ -44,7 +58,7 @@ export default function Home() {
               alt="Notificação de venda"
               width={400}
               height={80}
-              className="absolute right-10 bottom-58 z-20 rotate-4 opacity-60"
+              className="absolute right-10 bottom-58 -z-20 rotate-4 opacity-60"
               floatDelay={3}
             />
 
@@ -63,7 +77,7 @@ export default function Home() {
             </p>
             <div className="flex gap-4">
               <Button
-                className="rounded-md px-10 py-6 text-lg font-semibold text-white shadow-sm transition-transform duration-150 hover:-translate-y-1 active:scale-95"
+                className="cursor-pointer rounded-md px-10 py-6 text-lg font-semibold text-white shadow-sm transition-transform duration-150 hover:-translate-y-1 active:scale-95"
                 style={{
                   background: "linear-gradient(180deg,#34d399 0%,#16a34a 100%)",
                   boxShadow:
@@ -73,7 +87,7 @@ export default function Home() {
                 Comece agora
               </Button>
               <Button
-                className="rounded-md border border-white/10 px-8 py-6 text-lg font-medium text-white/85 transition-transform duration-150 hover:-translate-y-0.5 active:scale-95"
+                className="cursor-pointer rounded-md border border-white/10 px-8 py-6 text-lg font-medium text-white/85 transition-transform duration-150 hover:-translate-y-0.5 active:scale-95"
                 style={{
                   background: "rgba(255,255,255,0.02)",
                   boxShadow:
@@ -86,7 +100,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className="h-screen w-full bg-[#060606]"></div>
+      <div className="h-screen w-full bg-[#040306]"></div>
     </main>
   );
 }
