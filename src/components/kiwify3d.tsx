@@ -4,7 +4,7 @@ import { useGLTF } from "@react-three/drei";
 import { Canvas, useFrame } from "@react-three/fiber";
 import type { SpringOptions } from "motion/react";
 import { useMotionValue, useSpring } from "motion/react";
-import { useEffect,useRef } from "react";
+import { useEffect, useRef } from "react";
 import * as THREE from "three";
 
 const springValues: SpringOptions = {
@@ -68,13 +68,6 @@ function KiwifyModel({
     materializedRef.current = true;
   }
 
-  // Rotação automática
-  // useFrame(() => {
-  //   if (groupRef.current) {
-  //     groupRef.current.rotation.y += 0.01; // Gira no eixo Y
-  //   }
-  // });
-
   // Aplicar rotação do mouse
   useFrame(() => {
     if (groupRef.current) {
@@ -87,7 +80,7 @@ function KiwifyModel({
     <group ref={groupRef}>
       <primitive
         object={gltf.scene}
-        scale={5}
+        scale={6.2}
         position={[0, 0, 0]}
         rotation={[1.7, 0, 1.7]}
       />

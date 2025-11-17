@@ -25,7 +25,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-br">
+    <html className="bg-[#060707]" lang="pt-br">
       <body
         className={`${montserrat.variable} ${geistMono.variable} font-montserrat antialiased`}
       >

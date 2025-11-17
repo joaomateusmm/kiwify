@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 
 type CanvasStrokeStyle = string | CanvasGradient | CanvasPattern;
 
@@ -63,16 +63,20 @@ const Squares: React.FC<SquaresProps> = ({
               hoveredSquareRef.current.x &&
             Math.floor((y - startY) / squareSize) === hoveredSquareRef.current.y
           ) {
-            ctx.fillStyle = hoverFillColor;
+            ctx.fillStyle = hoverFillColor as
+              | string
+              | CanvasGradient
+              | CanvasPattern;
             ctx.fillRect(squareX, squareY, squareSize, squareSize);
           }
 
-          ctx.strokeStyle = borderColor;
+          ctx.strokeStyle = borderColor as string;
           ctx.strokeRect(squareX, squareY, squareSize, squareSize);
         }
       }
 
-      const gradient = ctx.createRadialGradient(
+      // radial vignette to add depth
+      const vignette = ctx.createRadialGradient(
         canvas.width / 2,
         canvas.height / 2,
         0,
@@ -80,11 +84,28 @@ const Squares: React.FC<SquaresProps> = ({
         canvas.height / 2,
         Math.sqrt(canvas.width ** 2 + canvas.height ** 2) / 2,
       );
-      gradient.addColorStop(0, "rgba(0, 0, 0, 0)");
-      gradient.addColorStop(1, "#060010");
+      vignette.addColorStop(0, "rgba(0, 0, 0, 0)");
+      vignette.addColorStop(1, "#060010");
 
-      ctx.fillStyle = gradient;
+      ctx.fillStyle = vignette;
       ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      // Bottom fade/erase: make lower area transparent so underlying bg shows
+      const fadeStartY = Math.floor(canvas.height * 0.6);
+      const eraseGrad = ctx.createLinearGradient(
+        0,
+        fadeStartY,
+        0,
+        canvas.height,
+      );
+      eraseGrad.addColorStop(0, "rgba(0,0,0,0)");
+      eraseGrad.addColorStop(1, "rgba(0,0,0,1)");
+
+      ctx.save();
+      ctx.globalCompositeOperation = "destination-out";
+      ctx.fillStyle = eraseGrad as string | CanvasGradient | CanvasPattern;
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.restore();
     };
 
     const updateAnimation = () => {
