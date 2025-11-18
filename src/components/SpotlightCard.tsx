@@ -7,6 +7,7 @@ interface Position {
 
 interface SpotlightCardProps extends React.PropsWithChildren {
   className?: string;
+  responsiveClassName?: string;
   spotlightColor?: `rgba(${number}, ${number}, ${number}, ${number})`;
   backgroundImage?: string;
   backgroundPosition?: string;
@@ -16,6 +17,7 @@ interface SpotlightCardProps extends React.PropsWithChildren {
 const SpotlightCard: React.FC<SpotlightCardProps> = ({
   children,
   className = "",
+  responsiveClassName = "",
   spotlightColor = "rgba(255, 255, 255, 0.25)",
   backgroundImage,
   backgroundPosition = "center",
@@ -59,7 +61,7 @@ const SpotlightCard: React.FC<SpotlightCardProps> = ({
       onBlur={handleBlur}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      className={`relative overflow-hidden rounded-3xl border border-neutral-800 bg-neutral-900 p-8 ${className}`}
+      className={`relative w-full overflow-hidden rounded-3xl border border-neutral-800 bg-neutral-900 p-8 ${className} ${responsiveClassName}`}
       style={
         backgroundImage
           ? {

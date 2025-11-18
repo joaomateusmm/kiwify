@@ -20,6 +20,7 @@ interface TiltedNotificationProps {
   rotateAmplitude?: number;
   scaleOnHover?: number;
   floatDelay?: number;
+  mobileScale?: number;
 }
 
 export default function TiltedNotification({
@@ -31,6 +32,7 @@ export default function TiltedNotification({
   rotateAmplitude = 12,
   scaleOnHover = 1.08,
   floatDelay = 0,
+  mobileScale = 1.25,
 }: TiltedNotificationProps) {
   const ref = useRef<HTMLDivElement>(null);
   const rotateX = useSpring(useMotionValue(0), springValues);
@@ -83,7 +85,36 @@ export default function TiltedNotification({
         delay: floatDelay,
       }}
     >
-      <Image src={src} alt={alt} width={width} height={height} />
+      <ResponsiveImage
+        src={src}
+        alt={alt}
+        width={width}
+        height={height}
+        mobileScale={mobileScale}
+      />
     </motion.div>
+  );
+}
+
+function ResponsiveImage({
+  src,
+  alt,
+  width,
+  height,
+  mobileScale,
+}: {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+  mobileScale: number;
+}) {
+  const isClient = typeof window !== "undefined";
+  const isMobile = isClient ? window.innerWidth <= 768 : false;
+  const renderWidth = isMobile ? Math.round(width * mobileScale) : width;
+  const renderHeight = isMobile ? Math.round(height * mobileScale) : height;
+
+  return (
+    <Image src={src} alt={alt} width={renderWidth} height={renderHeight} />
   );
 }
