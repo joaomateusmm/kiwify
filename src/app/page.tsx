@@ -4,6 +4,7 @@ import { Zap } from "lucide-react";
 import Image from "next/image";
 
 import GlareHover from "@/components/GlareHover";
+import GlareHover2 from "@/components/GlareHover2";
 import HeaderDesktop from "@/components/headerDesktop";
 import HeaderMobile from "@/components/headerMobile";
 import KiwifyScene from "@/components/kiwify3d";
@@ -292,113 +293,153 @@ export default function Home() {
 
       <div className="flex flex-col items-center justify-center gap-6 bg-[#060707] pb-12 md:flex-row">
         {/* card do perfil 1 */}
-        <div className="flex w-56 flex-col items-center justify-center rounded-lg border px-12 py-6 text-center duration-300 hover:scale-[1.03]">
-          <div className="relative mx-auto flex h-[110px] w-[110px] items-center justify-center">
-            <Image
-              className="h-20.5 w-20.5 rounded-full"
-              src="/assets/profile/storie-stroke.png"
-              alt=""
-              width={110}
-              height={110}
-            />
-            <Image
-              className="absolute top-1/2 left-1/2 h-18 w-18 -translate-x-1/2 -translate-y-1/2 rounded-full"
-              src="/assets/profile/icon.png"
-              alt=""
-              width={100}
-              height={100}
-            />
+        <GlareHover2
+          glareColor="#ffffff"
+          glareOpacity={0.3}
+          glareAngle={-30}
+          glareSize={300}
+          transitionDuration={800}
+          playOnce={false}
+        >
+          <div className="flex h-72 w-56 flex-col items-center justify-center rounded-lg px-12 py-6 text-center duration-300 hover:scale-[1.03]">
+            <div className="relative mx-auto flex h-[110px] w-[110px] items-center justify-center">
+              <Image
+                className="h-20.5 w-20.5 rounded-full"
+                src="/assets/profile/storie-stroke.png"
+                alt=""
+                width={110}
+                height={110}
+              />
+              <Image
+                className="absolute top-1/2 left-1/2 h-18 w-18 -translate-x-1/2 -translate-y-1/2 rounded-full"
+                src="/assets/profile/icon.png"
+                alt=""
+                width={100}
+                height={100}
+              />
+            </div>
+            <h1 className="font-['Clash_Display'] font-semibold">
+              Duda Vieira
+            </h1>
+            <h2 className="text-white/70">@mariaeduardasv</h2>
+            <div className="my-2 w-full border"></div>
+            <div>
+              <p>Taxa de venda:</p>
+              <p className="font-bold text-[#2EB76E]">21.23%</p>
+            </div>
           </div>
-          <h1 className="font-['Clash_Display'] font-semibold">Duda Vieira</h1>
-          <h2 className="text-white/70">@mariaeduardasv</h2>
-          <div className="my-2 w-full border"></div>
-          <div>
-            <p>Taxa de venda:</p>
-            <p className="font-bold text-[#2EB76E]">21.23%</p>
-          </div>
-        </div>
+        </GlareHover2>
         {/* card do perfil 2 */}
-        <div className="flex w-56 flex-col items-center justify-center rounded-lg border px-12 py-6 text-center duration-300 hover:scale-[1.03]">
-          <div className="relative mx-auto flex h-[110px] w-[110px] items-center justify-center">
-            <Image
-              className="h-20.5 w-20.5 rounded-full"
-              src="/assets/profile/storie-stroke.png"
-              alt=""
-              width={110}
-              height={110}
-            />
-            <Image
-              className="absolute top-1/2 left-1/2 h-18 w-18 -translate-x-1/2 -translate-y-1/2 rounded-full"
-              src="/assets/profile/icon-2.png"
-              alt=""
-              width={100}
-              height={100}
-            />
+        <GlareHover2
+          glareColor="#ffffff"
+          glareOpacity={0.3}
+          glareAngle={-30}
+          glareSize={300}
+          transitionDuration={800}
+          playOnce={false}
+        >
+          <div className="flex h-72 w-56 flex-col items-center justify-center rounded-lg px-12 py-6 text-center duration-300 hover:scale-[1.03]">
+            <div className="relative mx-auto flex h-[110px] w-[110px] items-center justify-center">
+              <Image
+                className="h-20.5 w-20.5 rounded-full"
+                src="/assets/profile/storie-stroke.png"
+                alt=""
+                width={110}
+                height={110}
+              />
+              <Image
+                className="absolute top-1/2 left-1/2 h-18 w-18 -translate-x-1/2 -translate-y-1/2 rounded-full"
+                src="/assets/profile/icon-2.png"
+                alt=""
+                width={100}
+                height={100}
+              />
+            </div>
+            <h1 className="font-['Clash_Display'] font-semibold">
+              Adson Henrique
+            </h1>
+            <h2 className="text-white/70">@adsonhenriquee</h2>
+            <div className="my-2 w-full border"></div>
+            <div>
+              <p>Taxa de venda:</p>
+              <p className="font-bold text-[#2EB76E]">25.02%</p>
+            </div>
           </div>
-          <h1 className="font-['Clash_Display'] font-semibold">
-            Adson Henrique
-          </h1>
-          <h2 className="text-white/70">@adsonhenriquee</h2>
-          <div className="my-2 w-full border"></div>
-          <div>
-            <p>Taxa de venda:</p>
-            <p className="font-bold text-[#2EB76E]">25.02%</p>
+        </GlareHover2>
+        {/* card do perfil 3 */}
+        <GlareHover2
+          glareColor="#ffffff"
+          glareOpacity={0.3}
+          glareAngle={-30}
+          glareSize={300}
+          transitionDuration={800}
+          playOnce={false}
+        >
+          <div className="flex h-72 w-56 flex-col items-center justify-center rounded-lg px-12 py-6 text-center duration-300 hover:scale-[1.03]">
+            <div className="relative mx-auto flex h-[110px] w-[110px] items-center justify-center">
+              <Image
+                className="h-20.5 w-20.5 rounded-full"
+                src="/assets/profile/storie-stroke.png"
+                alt=""
+                width={110}
+                height={110}
+              />
+              <Image
+                className="absolute top-1/2 left-1/2 h-18 w-18 -translate-x-1/2 -translate-y-1/2 rounded-full"
+                src="/assets/profile/icon-3.png"
+                alt=""
+                width={100}
+                height={100}
+              />
+            </div>
+            <h1 className="font-['Clash_Display'] font-semibold">
+              Higor Neves
+            </h1>
+            <h2 className="text-white/70">@neveshigor_</h2>
+            <div className="my-2 w-full border"></div>
+            <div>
+              <p>Taxa de venda:</p>
+              <p className="font-bold text-[#2EB76E]">22.71%</p>
+            </div>
           </div>
-        </div>
-        {/* card do perfil 2 */}
-        <div className="flex w-56 flex-col items-center justify-center rounded-lg border px-12 py-6 text-center duration-300 hover:scale-[1.03]">
-          <div className="relative mx-auto flex h-[110px] w-[110px] items-center justify-center">
-            <Image
-              className="h-20.5 w-20.5 rounded-full"
-              src="/assets/profile/storie-stroke.png"
-              alt=""
-              width={110}
-              height={110}
-            />
-            <Image
-              className="absolute top-1/2 left-1/2 h-18 w-18 -translate-x-1/2 -translate-y-1/2 rounded-full"
-              src="/assets/profile/icon-3.png"
-              alt=""
-              width={100}
-              height={100}
-            />
-          </div>
-          <h1 className="font-['Clash_Display'] font-semibold">Higor Neves</h1>
-          <h2 className="text-white/70">@neveshigor_</h2>
-          <div className="my-2 w-full border"></div>
-          <div>
-            <p>Taxa de venda:</p>
-            <p className="font-bold text-[#2EB76E]">22.71%</p>
-          </div>
-        </div>
+        </GlareHover2>
         {/* card do perfil 4 */}
-        <div className="flex w-56 flex-col items-center justify-center rounded-lg border px-12 py-6 text-center duration-300 hover:scale-[1.03]">
-          <div className="relative mx-auto flex h-[110px] w-[110px] items-center justify-center">
-            <Image
-              className="h-20.5 w-20.5 rounded-full"
-              src="/assets/profile/storie-stroke.png"
-              alt=""
-              width={110}
-              height={110}
-            />
-            <Image
-              className="absolute top-1/2 left-1/2 h-18 w-18 -translate-x-1/2 -translate-y-1/2 rounded-full"
-              src="/assets/profile/icon-4.png"
-              alt=""
-              width={100}
-              height={100}
-            />
+        <GlareHover2
+          glareColor="#ffffff"
+          glareOpacity={0.3}
+          glareAngle={-30}
+          glareSize={300}
+          transitionDuration={800}
+          playOnce={false}
+        >
+          <div className="flex h-72 w-56 flex-col items-center justify-center rounded-lg px-12 py-6 text-center duration-300 hover:scale-[1.03]">
+            <div className="relative mx-auto flex h-[110px] w-[110px] items-center justify-center">
+              <Image
+                className="h-20.5 w-20.5 rounded-full"
+                src="/assets/profile/storie-stroke.png"
+                alt=""
+                width={110}
+                height={110}
+              />
+              <Image
+                className="absolute top-1/2 left-1/2 h-18 w-18 -translate-x-1/2 -translate-y-1/2 rounded-full"
+                src="/assets/profile/icon-4.png"
+                alt=""
+                width={100}
+                height={100}
+              />
+            </div>
+            <h1 className="font-['Clash_Display'] font-semibold">
+              Hytallo Soares
+            </h1>
+            <h2 className="text-white/70">@hytallosoares</h2>
+            <div className="my-2 w-full border"></div>
+            <div>
+              <p>Taxa de venda:</p>
+              <p className="font-bold text-[#2EB76E]">21.23%</p>
+            </div>
           </div>
-          <h1 className="font-['Clash_Display'] font-semibold">
-            Hytallo Soares
-          </h1>
-          <h2 className="text-white/70">@hytallosoares</h2>
-          <div className="my-2 w-full border"></div>
-          <div>
-            <p>Taxa de venda:</p>
-            <p className="font-bold text-[#2EB76E]">21.23%</p>
-          </div>
-        </div>
+        </GlareHover2>
       </div>
     </main>
   );
