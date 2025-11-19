@@ -61,7 +61,9 @@ const SpotlightCard: React.FC<SpotlightCardProps> = ({
       onBlur={handleBlur}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      className={`relative w-full overflow-hidden rounded-3xl border border-neutral-800 bg-neutral-900 p-8 ${className} ${responsiveClassName}`}
+      // Ensure the card does not stretch inside flex containers so explicit
+      // width utilities provided by callers are respected (e.g. `w-[50px]`).
+      className={`relative flex-none overflow-hidden rounded-3xl border border-neutral-800 bg-neutral-900 p-8 ${className} ${responsiveClassName}`}
       style={
         backgroundImage
           ? {

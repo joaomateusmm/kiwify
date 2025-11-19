@@ -167,6 +167,7 @@ export default function Home() {
             />
           </div>
         </div>
+
         <div>
           <div className="mx-auto mb-6 max-w-4xl px-6 text-center">
             <h1 className="font-montserrat text-lg font-light text-white/90 md:text-2xl">
@@ -176,40 +177,63 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="">
-          <div className="mx-6 mb-6 flex flex-col gap-6 md:flex-row">
-            <SpotlightCard
-              className="custom-spotlight-card h-[350px] w-[450px] border-0 bg-white/2 md:hidden"
-              spotlightColor="rgba(0, 229, 255, 0.2)"
-              backgroundImage="/assets/cards/quadrado-1.png"
-            ></SpotlightCard>
-            <SpotlightCard
-              className="custom-spotlight-card hidden h-[450px] w-[50px] border-0 bg-white/2 md:block"
-              spotlightColor="rgba(0, 229, 255, 0.2)"
-              backgroundImage="/assets/cards/quadrado-.png"
-            ></SpotlightCard>
-            <SpotlightCard
-              className="custom-spotlight-card h-[350px] w-[450px] border-0 bg-white/2 md:hidden"
-              spotlightColor="rgba(0, 229, 255, 0.2)"
-              backgroundImage="/assets/cards/quadrado-2-mobile.png"
-            ></SpotlightCard>
-            <SpotlightCard
-              className="custom-spotlight-card h-[450px] w-[850px] border-0 bg-white/2"
-              spotlightColor="rgba(0, 229, 255, 0.2)"
-              backgroundImage="/assets/cards/quadrado-2.png"
-            ></SpotlightCard>
+        <div className="py-8">
+          <div className="mx-auto mb-6 w-full max-w-6xl px-4">
+            <div className="flex flex-col gap-6 md:flex-row md:items-start md:justify-center">
+              <SpotlightCard
+                className="custom-spotlight-card h-[350px] w-[450px] border-0 bg-white/2 md:hidden"
+                spotlightColor="rgba(25, 156, 79, 0.2)"
+                backgroundImage="/assets/cards/quadrado-1-mobile.png"
+                // Card 1 mobile
+              ></SpotlightCard>
+              <SpotlightCard
+                className="custom-spotlight-card h-[350px] w-[450px] border-0 bg-white/2 md:hidden"
+                spotlightColor="rgba(25, 156, 79, 0.2)"
+                backgroundImage="/assets/cards/quadrado-2-mobile.png"
+                // Card 2 mobile
+              ></SpotlightCard>
+              <SpotlightCard
+                className="custom-spotlight-card hidden h-[450px] w-[450px] border-0 bg-white/2 md:block md:w-[450px]"
+                spotlightColor="rgba(25, 156, 79, 0.2)"
+                backgroundImage="/assets/cards/quadrado-1.png"
+                // Card 1 desktop
+              ></SpotlightCard>
+              <SpotlightCard
+                className="custom-spotlight-card hidden h-[450px] w-[850px] border-0 bg-white/2 md:block"
+                spotlightColor="rgba(25, 156, 79, 0.2)"
+                backgroundImage="/assets/cards/quadrado-2.png"
+                // Card 2 desktop
+              ></SpotlightCard>
+            </div>
           </div>
-          <div className="mx-6 flex flex-col gap-6">
-            <SpotlightCard
-              className="custom-spotlight-card h-[350px] w-[450px] border-0 bg-white/2"
-              spotlightColor="rgba(0, 229, 255, 0.2)"
-              backgroundImage="/assets/cards/quadrado-3.png"
-            ></SpotlightCard>
-            <SpotlightCard
-              className="custom-spotlight-card h-[350px] w-[450px] border-0 bg-white/2"
-              spotlightColor="rgba(0, 229, 255, 0.2)"
-              backgroundImage="/assets/cards/quadrado-4-mobile.png"
-            ></SpotlightCard>
+
+          <div className="mx-auto w-full max-w-6xl px-4">
+            <div className="flex flex-col gap-6 md:flex-row md:items-start md:justify-center">
+              <SpotlightCard
+                className="custom-spotlight-card h-[350px] w-[450px] border-0 bg-white/2 md:hidden"
+                spotlightColor="rgba(25, 156, 79, 0.2)"
+                backgroundImage="/assets/cards/quadrado-3.png"
+                // Card 3 mobile
+              ></SpotlightCard>
+              <SpotlightCard
+                className="custom-spotlight-card h-[350px] w-[450px] border-0 bg-white/2 md:hidden"
+                spotlightColor="rgba(25, 156, 79, 0.2)"
+                backgroundImage="/assets/cards/quadrado-4-mobile.png"
+                // Card 4 mobile
+              ></SpotlightCard>
+              <SpotlightCard
+                className="custom-spotlight-card hidden h-[450px] w-[645px] border-0 bg-white/2 md:block"
+                spotlightColor="rgba(25, 156, 79, 0.2)"
+                backgroundImage="/assets/cards/quadrado-3.png"
+                // Card 3 desktop
+              ></SpotlightCard>
+              <SpotlightCard
+                className="custom-spotlight-card hidden h-[450px] w-[645px] border-0 bg-white/2 md:block"
+                spotlightColor="rgba(25, 156, 79, 0.2)"
+                backgroundImage="/assets/cards/quadrado-4.png"
+                // Card 4 desktop
+              ></SpotlightCard>
+            </div>
           </div>
         </div>
       </div>
