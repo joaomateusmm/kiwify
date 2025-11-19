@@ -11,14 +11,15 @@ import KiwifyScene from "@/components/kiwify3d";
 import LoadingScreen from "@/components/LoadingScreen";
 import SpotlightCard from "@/components/SpotlightCard";
 import Squares from "@/components/Squares";
+import TiltedImage from "@/components/TiltedImage";
 import TiltedNotification from "@/components/TiltedNotification";
 import { Button } from "@/components/ui/button";
 
 export default function Home() {
   return (
-    <main>
+    <main className="overflow-x-hidden">
       <LoadingScreen />
-      <div className="relative flex min-h-screen w-full items-center justify-center overflow-x-hidden bg-[radial-gradient(circle_at_50%_-100%,#009D4726_58%,#0B0B0B_76%,#060606_89%)]">
+      <div className="relative flex min-h-screen w-full items-center justify-center bg-[radial-gradient(circle_at_50%_-100%,#009D4726_58%,#0B0B0B_76%,#060606_89%)]">
         <div className="z-20">
           <div className="hidden md:block">
             <HeaderDesktop />
@@ -182,15 +183,15 @@ export default function Home() {
 
         <div className="py-8">
           <div className="mx-auto mb-6 w-full max-w-6xl px-4">
-            <div className="flex flex-col gap-6 md:flex-row md:items-start md:justify-center">
+            <div className="flex flex-col items-center gap-6 md:flex-row md:items-start md:justify-center">
               <SpotlightCard
-                className="custom-spotlight-card h-[350px] w-[450px] border-0 bg-white/2 md:hidden"
+                className="custom-spotlight-card h-[300px] w-[350px] border-0 bg-white/2 md:hidden"
                 spotlightColor="rgba(25, 156, 79, 0.2)"
                 backgroundImage="/assets/cards/quadrado-1-mobile.png"
                 // Card 1 mobile
               ></SpotlightCard>
               <SpotlightCard
-                className="custom-spotlight-card h-[350px] w-[450px] border-0 bg-white/2 md:hidden"
+                className="custom-spotlight-card h-[300px] w-[350px] border-0 bg-white/2 md:hidden"
                 spotlightColor="rgba(25, 156, 79, 0.2)"
                 backgroundImage="/assets/cards/quadrado-2-mobile.png"
                 // Card 2 mobile
@@ -211,15 +212,15 @@ export default function Home() {
           </div>
 
           <div className="mx-auto w-full max-w-6xl px-4">
-            <div className="flex flex-col gap-6 md:flex-row md:items-start md:justify-center">
+            <div className="flex flex-col items-center gap-6 md:flex-row md:items-start md:justify-center">
               <SpotlightCard
-                className="custom-spotlight-card h-[350px] w-[450px] border-0 bg-white/2 md:hidden"
+                className="custom-spotlight-card h-[300px] w-[350px] border-0 bg-white/2 md:hidden"
                 spotlightColor="rgba(25, 156, 79, 0.2)"
                 backgroundImage="/assets/cards/quadrado-3.png"
                 // Card 3 mobile
               ></SpotlightCard>
               <SpotlightCard
-                className="custom-spotlight-card h-[350px] w-[450px] border-0 bg-white/2 md:hidden"
+                className="custom-spotlight-card h-[300px] w-[350px] border-0 bg-white/2 md:hidden"
                 spotlightColor="rgba(25, 156, 79, 0.2)"
                 backgroundImage="/assets/cards/quadrado-4-mobile.png"
                 // Card 4 mobile
@@ -440,6 +441,70 @@ export default function Home() {
             </div>
           </div>
         </GlareHover2>
+      </div>
+      <div className="relative mx-auto flex flex-col items-center justify-center bg-[#060707] px-6 py-18 text-white md:flex-row md:px-24 md:py-24">
+        <div className="relative flex flex-col items-start justify-center md:-mr-28">
+          <h1 className="bg-gradient-to-t from-white to-gray-400 bg-clip-text py-3 font-['Clash_Display'] text-5xl text-transparent">
+            Mais vendas aprovadas
+          </h1>
+          <p className="mt-2 mb-4 max-w-[500px] text-sm text-white/80">
+            Através do KiwiPay, o processador de pagamentos próprio da Kiwify,
+            não dependemos de intermediários que poderiam recusar suas vendas.
+            Desta forma, oferecemos altas taxas de aprovação.
+          </p>
+          <p className="mt-2 mb-4 max-w-[400px] text-sm text-white/80">
+            Alguns de nossos clientes chegam a ter taxa de aprovação de cartão
+            de mais de 90%:
+          </p>
+          <Button
+            className="cursor-pointer rounded-md font-semibold text-white shadow-sm transition-transform duration-300 hover:-translate-y-1 active:scale-95 md:px-10 md:py-6 md:text-lg"
+            style={{
+              background: "linear-gradient(180deg,#34d399 0%,#16a34a 100%)",
+              boxShadow:
+                "inset 8px 8px 12px rgba(255,255,255,0.06), inset -8px -8px 12px rgba(0,0,0,0.30)",
+            }}
+          >
+            Comece agora
+          </Button>
+          <div
+            className="pointer-events-none absolute inset-0 z-0 rotate-18"
+            style={{
+              background:
+                "radial-gradient(ellipse 250px 140px at center, rgba(8,52,31,0.28) 0%, rgba(8,52,31,0.12) 40%, rgba(8,52,31,0) 100%)",
+              backgroundPosition: "center",
+              backgroundRepeat: "no-repeat",
+            }}
+          />
+        </div>
+        <div className="relative mt-15 flex h-[380px] w-[720px] flex-col items-center justify-center gap-5 md:mt-0 md:w-[900px] md:gap-3">
+          <TiltedImage
+            src="/assets/mais-vendas-1.png"
+            alt="Mais vendas aprovadas"
+            width={220}
+            height={100}
+            className="z-10 backdrop-blur-xs md:-translate-x-15"
+            floatDelay={0}
+          />
+          <TiltedImage
+            src="/assets/mais-vendas-2.png"
+            alt="Mais vendas aprovadas"
+            width={220}
+            height={100}
+            className="z-10 backdrop-blur-xs md:translate-x-45 md:-translate-y-8"
+            floatDelay={1.0}
+          />
+
+          <div className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+            <Image
+              src="/assets/bg-vendas.png"
+              alt=""
+              width={800}
+              height={380}
+              className="h-auto w-[620px] opacity-50 md:w-[400px]"
+              style={{ animation: "spin 12s linear infinite" }}
+            />
+          </div>
+        </div>
       </div>
     </main>
   );
