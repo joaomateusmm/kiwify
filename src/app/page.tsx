@@ -3,17 +3,52 @@
 import { Zap } from "lucide-react";
 import Image from "next/image";
 
+import Footer from "@/components/Footer";
 import GlareHover from "@/components/GlareHover";
 import GlareHover2 from "@/components/GlareHover2";
 import HeaderDesktop from "@/components/headerDesktop";
 import HeaderMobile from "@/components/headerMobile";
 import KiwifyScene from "@/components/kiwify3d";
 import LoadingScreen from "@/components/LoadingScreen";
+import LogoLoop from "@/components/LogoLoop";
 import SpotlightCard from "@/components/SpotlightCard";
 import Squares from "@/components/Squares";
 import TiltedImage from "@/components/TiltedImage";
 import TiltedNotification from "@/components/TiltedNotification";
 import { Button } from "@/components/ui/button";
+
+const imageLogos = [
+  {
+    src: "/icons/company 1.png",
+    alt: "Company 1",
+    href: "https://company1.com",
+  },
+  {
+    src: "/icons/company 2.png",
+    alt: "Company 2",
+    href: "https://company2.com",
+  },
+  {
+    src: "/icons/company 3.png",
+    alt: "Company 3",
+    href: "https://company3.com",
+  },
+  {
+    src: "/icons/company 4.png",
+    alt: "Company 3",
+    href: "https://company3.com",
+  },
+  {
+    src: "/icons/company 5.png",
+    alt: "Company 3",
+    href: "https://company3.com",
+  },
+  {
+    src: "/icons/company 3.png",
+    alt: "Company 3",
+    href: "https://company 6.com",
+  },
+];
 
 export default function Home() {
   return (
@@ -442,70 +477,111 @@ export default function Home() {
           </div>
         </GlareHover2>
       </div>
-      <div className="relative mx-auto flex flex-col items-center justify-center bg-[#060707] px-6 py-18 text-white md:flex-row md:px-24 md:py-24">
-        <div className="relative flex flex-col items-start justify-center md:-mr-28">
-          <h1 className="bg-gradient-to-t from-white to-gray-400 bg-clip-text py-3 font-['Clash_Display'] text-5xl text-transparent">
-            Mais vendas aprovadas
-          </h1>
-          <p className="mt-2 mb-4 max-w-[500px] text-sm text-white/80">
-            Através do KiwiPay, o processador de pagamentos próprio da Kiwify,
-            não dependemos de intermediários que poderiam recusar suas vendas.
-            Desta forma, oferecemos altas taxas de aprovação.
-          </p>
-          <p className="mt-2 mb-4 max-w-[400px] text-sm text-white/80">
-            Alguns de nossos clientes chegam a ter taxa de aprovação de cartão
-            de mais de 90%:
-          </p>
-          <Button
-            className="cursor-pointer rounded-md font-semibold text-white shadow-sm transition-transform duration-300 hover:-translate-y-1 active:scale-95 md:px-10 md:py-6 md:text-lg"
-            style={{
-              background: "linear-gradient(180deg,#34d399 0%,#16a34a 100%)",
-              boxShadow:
-                "inset 8px 8px 12px rgba(255,255,255,0.06), inset -8px -8px 12px rgba(0,0,0,0.30)",
-            }}
-          >
-            Comece agora
-          </Button>
-          <div
-            className="pointer-events-none absolute inset-0 z-0 rotate-18"
-            style={{
-              background:
-                "radial-gradient(ellipse 250px 140px at center, rgba(8,52,31,0.28) 0%, rgba(8,52,31,0.12) 40%, rgba(8,52,31,0) 100%)",
-              backgroundPosition: "center",
-              backgroundRepeat: "no-repeat",
-            }}
-          />
-        </div>
-        <div className="relative mt-15 flex h-[380px] w-[720px] flex-col items-center justify-center gap-5 md:mt-0 md:w-[900px] md:gap-3">
-          <TiltedImage
-            src="/assets/mais-vendas-1.png"
-            alt="Mais vendas aprovadas"
-            width={220}
-            height={100}
-            className="z-10 backdrop-blur-xs md:-translate-x-15"
-            floatDelay={0}
-          />
-          <TiltedImage
-            src="/assets/mais-vendas-2.png"
-            alt="Mais vendas aprovadas"
-            width={220}
-            height={100}
-            className="z-10 backdrop-blur-xs md:translate-x-45 md:-translate-y-8"
-            floatDelay={1.0}
-          />
-
-          <div className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-            <Image
-              src="/assets/bg-vendas.png"
-              alt=""
-              width={800}
-              height={380}
-              className="h-auto w-[620px] opacity-50 md:w-[400px]"
-              style={{ animation: "spin 12s linear infinite" }}
+      <div className="relative bg-[#060707] px-6 py-18 text-white md:px-24 md:py-24">
+        <div className="mx-auto flex w-full max-w-6xl flex-col items-center justify-center md:flex-row">
+          <div className="relative flex flex-col items-start justify-center md:mr-0 md:w-1/2">
+            <h1 className="bg-gradient-to-t from-white to-gray-400 bg-clip-text py-3 font-['Clash_Display'] text-5xl text-transparent">
+              Mais vendas aprovadas
+            </h1>
+            <p className="mt-2 mb-4 max-w-[500px] text-sm text-white/80">
+              Através do KiwiPay, o processador de pagamentos próprio da Kiwify,
+              não dependemos de intermediários que poderiam recusar suas vendas.
+              Desta forma, oferecemos altas taxas de aprovação.
+            </p>
+            <p className="mt-2 mb-7 max-w-[400px] text-sm text-white/80">
+              Alguns de nossos clientes chegam a ter taxa de aprovação de cartão
+              de mais de 90%:
+            </p>
+            <Button
+              className="cursor-pointer rounded-md font-semibold text-white shadow-sm transition-transform duration-300 hover:-translate-y-1 active:scale-95 md:px-10 md:py-6 md:text-lg"
+              style={{
+                background: "linear-gradient(180deg,#34d399 0%,#16a34a 100%)",
+                boxShadow:
+                  "inset 8px 8px 12px rgba(255,255,255,0.06), inset -8px -8px 12px rgba(0,0,0,0.30)",
+              }}
+            >
+              Comece agora
+            </Button>
+            <div
+              className="pointer-events-none absolute inset-0 z-0 hidden rotate-18 md:block"
+              style={{
+                background:
+                  "radial-gradient(ellipse 250px 140px at center, rgba(8,52,31,0.28) 0%, rgba(8,52,31,0.12) 40%, rgba(8,52,31,0) 100%)",
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat",
+              }}
             />
+          </div>
+          <div className="relative mt-15 flex h-[380px] w-full max-w-[720px] flex-col items-center justify-center gap-5 md:mt-0 md:w-1/2 md:gap-3">
+            <TiltedImage
+              src="/assets/mais-vendas-1.png"
+              alt="Mais vendas aprovadas"
+              width={220}
+              height={100}
+              className="z-10 backdrop-blur-xs md:-translate-x-15"
+              floatDelay={0}
+            />
+            <TiltedImage
+              src="/assets/mais-vendas-2.png"
+              alt="Mais vendas aprovadas"
+              width={220}
+              height={100}
+              className="z-10 backdrop-blur-xs md:translate-x-45 md:-translate-y-8"
+              floatDelay={1.0}
+            />
+
+            <div className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+              <div className="origin-center translate-x-0 scale-170 transform opacity-50 md:translate-x-14 md:scale-125">
+                <Image
+                  src="/assets/bg-vendas.png"
+                  alt=""
+                  width={800}
+                  height={380}
+                  className="h-auto w-[620px] animate-[spin_12s_ease-in-out_infinite] md:w-[400px]"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </div>
+      <div className="pointer-events-none w-full bg-[#060707]">
+        <div className="pointer-events-none w-full">
+          <div className="mx-auto w-full px-4">
+            <Image
+              className="mx-auto mb-4 h-auto md:-mt-12 md:w-[1000px]"
+              src="/assets/divisa.png"
+              alt="Kiwify divider"
+              width={600}
+              height={60}
+              priority
+            />
+          </div>
+        </div>
+
+        <div>
+          <div className="mx-auto max-w-4xl px-6 text-center">
+            <h1 className="font-montserrat text-lg font-light text-white/90 md:text-2xl">
+              Temos todas as funcionalidades que você precisa para vender o seu
+              infoproduto:
+            </h1>
+          </div>
+        </div>
+        <div className="z-50 py-12">
+          <LogoLoop
+            logos={imageLogos}
+            speed={50}
+            direction="left"
+            logoHeight={200}
+            gap={70}
+            hoverSpeed={0}
+            scaleOnHover
+            fadeOut
+            fadeOutColor="#060707"
+            ariaLabel="Technology partners"
+          />
+        </div>
+      </div>
+      <Footer />
     </main>
   );
 }
