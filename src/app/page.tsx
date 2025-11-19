@@ -1,7 +1,9 @@
 "use client";
 
+import { Zap } from "lucide-react";
 import Image from "next/image";
 
+import GlareHover from "@/components/GlareHover";
 import HeaderDesktop from "@/components/headerDesktop";
 import HeaderMobile from "@/components/headerMobile";
 import KiwifyScene from "@/components/kiwify3d";
@@ -234,6 +236,167 @@ export default function Home() {
                 // Card 4 desktop
               ></SpotlightCard>
             </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="relative flex flex-col items-center justify-center overflow-hidden bg-[#060707] px-6 py-12 text-center text-white md:px-24 md:py-14">
+        <div
+          className="pointer-events-none absolute inset-0 z-0 rotate-18"
+          style={{
+            background:
+              "radial-gradient(ellipse 250px 140px at center, rgba(8,52,31,0.28) 0%, rgba(8,52,31,0.12) 40%, rgba(8,52,31,0) 100%)",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+          }}
+        />
+        <div className="relative z-10 flex flex-col items-center justify-center text-center">
+          <GlareHover
+            glareColor="#ffffff"
+            glareOpacity={0.3}
+            glareAngle={-30}
+            glareSize={300}
+            transitionDuration={800}
+            playOnce={false}
+          >
+            <div className="flex h-auto w-auto items-center justify-center gap-3 rounded-md border border-white/10 bg-[rgba(217,217,217,0.03)] px-3 py-1.5">
+              <div className="h-auto w-auto rounded-md bg-[rgba(217,217,217,0.12)] p-1">
+                <Zap className="h-4 w-4 text-[#2CB571]" />
+              </div>
+              <p className="font-normal text-white/80">
+                EXPLORE NOSSAS{" "}
+                <span className="font-semibold text-white">FEATURES</span>
+              </p>
+            </div>
+          </GlareHover>
+          <h1 className="bg-gradient-to-t from-white to-gray-400 bg-clip-text py-3 font-['Clash_Display'] text-5xl text-transparent">
+            Compradores 1 Click
+          </h1>
+          <p className="max-w-[600px] text-sm text-white/80">
+            oda vez que um comprador compra pela Kiwify, ele tem a opção de
+            salvar os dados do cartão para fazer as próximas compras (em
+            qualquer checkout) com 1-click.{" "}
+          </p>
+          <Button
+            className="mt-5 cursor-pointer rounded-md font-semibold text-white shadow-sm transition-transform duration-300 hover:-translate-y-1 active:scale-95 md:px-10 md:py-6 md:text-lg"
+            style={{
+              background: "linear-gradient(180deg,#34d399 0%,#16a34a 100%)",
+              boxShadow:
+                "inset 8px 8px 12px rgba(255,255,255,0.06), inset -8px -8px 12px rgba(0,0,0,0.30)",
+            }}
+          >
+            Comece agora
+          </Button>
+        </div>
+      </div>
+
+      <div className="flex flex-col items-center justify-center gap-6 bg-[#060707] pb-12 md:flex-row">
+        {/* card do perfil 1 */}
+        <div className="flex w-56 flex-col items-center justify-center rounded-lg border px-12 py-6 text-center duration-300 hover:scale-[1.03]">
+          <div className="relative mx-auto flex h-[110px] w-[110px] items-center justify-center">
+            <Image
+              className="h-20.5 w-20.5 rounded-full"
+              src="/assets/profile/storie-stroke.png"
+              alt=""
+              width={110}
+              height={110}
+            />
+            <Image
+              className="absolute top-1/2 left-1/2 h-18 w-18 -translate-x-1/2 -translate-y-1/2 rounded-full"
+              src="/assets/profile/icon.png"
+              alt=""
+              width={100}
+              height={100}
+            />
+          </div>
+          <h1 className="font-['Clash_Display'] font-semibold">Duda Vieira</h1>
+          <h2 className="text-white/70">@mariaeduardasv</h2>
+          <div className="my-2 w-full border"></div>
+          <div>
+            <p>Taxa de venda:</p>
+            <p className="font-bold text-[#2EB76E]">21.23%</p>
+          </div>
+        </div>
+        {/* card do perfil 2 */}
+        <div className="flex w-56 flex-col items-center justify-center rounded-lg border px-12 py-6 text-center duration-300 hover:scale-[1.03]">
+          <div className="relative mx-auto flex h-[110px] w-[110px] items-center justify-center">
+            <Image
+              className="h-20.5 w-20.5 rounded-full"
+              src="/assets/profile/storie-stroke.png"
+              alt=""
+              width={110}
+              height={110}
+            />
+            <Image
+              className="absolute top-1/2 left-1/2 h-18 w-18 -translate-x-1/2 -translate-y-1/2 rounded-full"
+              src="/assets/profile/icon-2.png"
+              alt=""
+              width={100}
+              height={100}
+            />
+          </div>
+          <h1 className="font-['Clash_Display'] font-semibold">
+            Adson Henrique
+          </h1>
+          <h2 className="text-white/70">@adsonhenriquee</h2>
+          <div className="my-2 w-full border"></div>
+          <div>
+            <p>Taxa de venda:</p>
+            <p className="font-bold text-[#2EB76E]">25.02%</p>
+          </div>
+        </div>
+        {/* card do perfil 2 */}
+        <div className="flex w-56 flex-col items-center justify-center rounded-lg border px-12 py-6 text-center duration-300 hover:scale-[1.03]">
+          <div className="relative mx-auto flex h-[110px] w-[110px] items-center justify-center">
+            <Image
+              className="h-20.5 w-20.5 rounded-full"
+              src="/assets/profile/storie-stroke.png"
+              alt=""
+              width={110}
+              height={110}
+            />
+            <Image
+              className="absolute top-1/2 left-1/2 h-18 w-18 -translate-x-1/2 -translate-y-1/2 rounded-full"
+              src="/assets/profile/icon-3.png"
+              alt=""
+              width={100}
+              height={100}
+            />
+          </div>
+          <h1 className="font-['Clash_Display'] font-semibold">Higor Neves</h1>
+          <h2 className="text-white/70">@neveshigor_</h2>
+          <div className="my-2 w-full border"></div>
+          <div>
+            <p>Taxa de venda:</p>
+            <p className="font-bold text-[#2EB76E]">22.71%</p>
+          </div>
+        </div>
+        {/* card do perfil 4 */}
+        <div className="flex w-56 flex-col items-center justify-center rounded-lg border px-12 py-6 text-center duration-300 hover:scale-[1.03]">
+          <div className="relative mx-auto flex h-[110px] w-[110px] items-center justify-center">
+            <Image
+              className="h-20.5 w-20.5 rounded-full"
+              src="/assets/profile/storie-stroke.png"
+              alt=""
+              width={110}
+              height={110}
+            />
+            <Image
+              className="absolute top-1/2 left-1/2 h-18 w-18 -translate-x-1/2 -translate-y-1/2 rounded-full"
+              src="/assets/profile/icon-4.png"
+              alt=""
+              width={100}
+              height={100}
+            />
+          </div>
+          <h1 className="font-['Clash_Display'] font-semibold">
+            Hytallo Soares
+          </h1>
+          <h2 className="text-white/70">@hytallosoares</h2>
+          <div className="my-2 w-full border"></div>
+          <div>
+            <p>Taxa de venda:</p>
+            <p className="font-bold text-[#2EB76E]">21.23%</p>
           </div>
         </div>
       </div>
