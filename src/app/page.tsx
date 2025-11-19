@@ -44,7 +44,7 @@ const imageLogos = [
     href: "https://company3.com",
   },
   {
-    src: "/icons/company 3.png",
+    src: "/icons/company 6.png",
     alt: "Company 3",
     href: "https://company 6.com",
   },
